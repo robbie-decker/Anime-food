@@ -51,17 +51,36 @@ function addText(){
   let imageText = document.createElement('p');
   imageText.textContent = flavorText[randomIntFromInterval(0, (flavorText.length - 1))];
   imageText.classList.add('centered');
-  imageText.style.left = `${randomIntFromInterval(1, 9) * 10}%`
+
+  // Set left
+  let left = randomIntFromInterval(1, 8) * 10;
+  imageText.style.left = `${left}%`;
+
   let bottom_or_top = randomIntFromInterval(0,1);
+  let top;
   // Append to bottom of image
+  // Set right
   if(bottom_or_top == 0){
-    imageText.style.top = `${randomIntFromInterval(75, 90)}%`;
+    top = randomIntFromInterval(75, 90);
+    imageText.style.top = `${top}%`;
   }
   // Append to top of image
   else{
-    imageText.style.top = `${randomIntFromInterval(5, 20)}`;
+    top = randomIntFromInterval(5, 20);
+    imageText.style.top = `${top}%`;
   }
-  imgWrapper.appendChild(imageText);
+  // Now add a sliding effect to the text
+  imageText.style.transition = "transform 3s";
+  imageText.style.transform = `translate(${-(left - 50)}%, ${-(top - 50)}%)`;
+  imageText.style.offsetWidth = 0;
+  imageText.style.overflow = "hidden";
+  imgWrapper.appendChild(imageText)
+  
+  // Trigger a reflow to apply initial styles and start the transition
+  imageText.getBoundingClientRect();
+  imageText.style.transform = `translate(${left - 50}%, ${top - 50}%)`;
+
+  // Remove the text
   setTimeout(() => {
     imgWrapper.removeChild(imageText);
   }, 3000);
