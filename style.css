@@ -13,17 +13,17 @@
 
 @font-face {
   font-family: "Kawaii";
-  src: url("./KawaiiBubble-Regular.ttf");
+  src: url("./fonts/KawaiiBubble-Regular.ttf");
 }
 
 @font-face {
   font-family: "Foodpacker";
-  src: url("./Foodpacker.otf");
+  src: url("./fonts/Foodpacker.otf");
 }
 
 @font-face {
   font-family: "Mangaka";
-  src: url("./Mangaka.otf");
+  src: url("./fonts/Mangaka.otf");
 }
 
 :root{
@@ -58,7 +58,7 @@ body{
   /* background-image: url("anime_kitchen.webp");
   background-repeat: no-repeat;
   background-size: cover; */
-  background-image: url("onigiri_background.png");
+  background-image: url("./imgs/onigiri_background.png");
   background-repeat: repeat;
   background-size: 500px;
 
