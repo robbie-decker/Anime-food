@@ -9,7 +9,7 @@ const img = document.querySelector('img');
 const imgWrapper = document.getElementById('img_wrapper');
 const limit = 20;
 let gifs, next
-let flavorText = ["Yummy", "Delicious!", "Tasty", "That looks good", "I'm so hungry", "Oishi", "Sugoi"]
+let flavorText = ["Yummy!", "Delicious!", "Tasty!", "Delectable!", "Delightful!", "Oishi!", "Sugoi!", "Appetizing", "Scrumptious!"]
 
 async function getGifBatch(next){
     // Want to not have repeats
