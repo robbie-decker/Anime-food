@@ -1,4 +1,4 @@
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -9,15 +9,42 @@
   button {
     background-color: #f9f9f9;
   }
-}
+} */
 
 @font-face {
   font-family: "Kawaii";
   src: url("./KawaiiBubble-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Foodpacker";
+  src: url("./Foodpacker.otf");
+}
+
+@font-face {
+  font-family: "Mangaka";
+  src: url("./Mangaka.otf");
+}
+
+:root{
+  --added_text_color: #f5bace;
+  --header_color: #80e1ee;
+}
+
 p, h1{
   margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+  font-family: "Foodpacker";
+  font-size: max(7vmin, 25px);
+  color: var(--header_color);
+}
+
+p{
+  font-size: max(2vmin, 8px);
+  color: rgba(34, 34, 34, .75);
 }
 
 body{
@@ -28,6 +55,13 @@ body{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* background-image: url("anime_kitchen.webp");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-image: url("onigiri_background.png");
+  background-repeat: repeat;
+  background-size: 500px;
+
 }
 
 img{
@@ -50,7 +84,7 @@ img{
   margin: 5px;
   padding: 15px;
   border-radius: 5px;
-  background-color: grey;
+  background-color: #58537e;
 }
 
 #refresh{
@@ -67,7 +101,7 @@ img{
   animation-iteration-count: 1;
   font-size: 4vmin;
   font-family: "Kawaii";
-  color: #FBDDE7;
+  color: var(--added_text_color);
   -webkit-text-stroke: 1px black; /* width and color */
 }
 
