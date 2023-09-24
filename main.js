@@ -40,7 +40,7 @@ refreshPic.addEventListener("click", () => {
 });
 
 function changeGif(){
-  let gifIndex = getRandomInt(gifs.length);
+  let gifIndex = randomIntFromInterval(0, gifs.length);
   img.src = gifs[gifIndex].media_formats.gif.url;
   gifs.splice(gifIndex, 1);
   addText();
@@ -48,16 +48,17 @@ function changeGif(){
 
 function addText(){
   let imageText = document.createElement('p');
-  imageText.textContent = flavorText[getRandomInt(flavorText.length)];
+  imageText.textContent = flavorText[randomIntFromInterval(0, flavorText.length)];
   imageText.classList.add('centered');
+  imageText.style.left = `${randomIntFromInterval(1, 9) * 10}%`
   imgWrapper.appendChild(imageText);
   setTimeout(() => {
     imgWrapper.removeChild(imageText);
   }, 3000);
 }
 
-function getRandomInt(max){
-  return Math.floor(Math.random() * max);
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 // setupCounter(document.querySelector('#counter'))
@@ -65,7 +66,7 @@ getGifBatch(0)
 .then((gifData) => {
   gifs = gifData.results,
     next = gifData.next;
-  let gifIndex = getRandomInt(gifs.length);
+  let gifIndex = randomIntFromInterval(0, gifs.length);
   img.src = gifs[gifIndex].media_formats.gif.url;
   gifs.splice(gifIndex, 1);
 });
