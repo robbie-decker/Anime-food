@@ -11,6 +11,10 @@
   }
 }
 
+p, h1{
+  margin: 0;
+}
+
 body{
   margin: 0;
   width: 100vw;
@@ -25,8 +29,11 @@ img{
   width: 100%;
   height: auto;
   max-height: 400px;
-  margin-bottom: 20px;
   object-fit: contain;
+}
+
+#img_wrapper{
+  position: relative;
 }
 
 #container{
@@ -35,4 +42,19 @@ img{
   justify-content: center;
   flex-direction: column;
   margin: 20px;
+}
+
+#refresh{
+  margin-top: 15px
+}
+
+.centered {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden{
+  /* display: none; */
 }

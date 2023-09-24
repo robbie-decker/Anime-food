@@ -6,8 +6,10 @@ import { setupCounter } from './counter.js'
 // In a perfect world this would be its own React component
 
 const img = document.querySelector('img');
+const imgWrapper = document.getElementById('img_wrapper');
 const limit = 20;
 let gifs, next
+let flavorText = ["Yummy", "Delicious!", "Tasty", "That looks good", "I'm so hungry", "Oishi", "Sugoi"]
 
 async function getGifBatch(next){
     // Want to not have repeats
@@ -41,6 +43,17 @@ function changeGif(){
   let gifIndex = getRandomInt(gifs.length);
   img.src = gifs[gifIndex].media_formats.gif.url;
   gifs.splice(gifIndex, 1);
+  addText();
+}
+
+function addText(){
+  let imageText = document.createElement('p');
+  imageText.textContent = flavorText[getRandomInt(flavorText.length)];
+  imageText.classList.add('centered');
+  imgWrapper.appendChild(imageText);
+  setTimeout(() => {
+    imgWrapper.removeChild(imageText);
+  }, 3000);
 }
 
 function getRandomInt(max){
@@ -52,5 +65,7 @@ getGifBatch(0)
 .then((gifData) => {
   gifs = gifData.results,
     next = gifData.next;
-  changeGif();
+  let gifIndex = getRandomInt(gifs.length);
+  img.src = gifs[gifIndex].media_formats.gif.url;
+  gifs.splice(gifIndex, 1);
 });
