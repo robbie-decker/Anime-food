@@ -40,17 +40,27 @@ refreshPic.addEventListener("click", () => {
 });
 
 function changeGif(){
-  let gifIndex = randomIntFromInterval(0, gifs.length);
+  let gifIndex = randomIntFromInterval(0, (gifs.length - 1));
   img.src = gifs[gifIndex].media_formats.gif.url;
   gifs.splice(gifIndex, 1);
   addText();
 }
 
+// Randomly add some text to the image and then remove the text
 function addText(){
   let imageText = document.createElement('p');
-  imageText.textContent = flavorText[randomIntFromInterval(0, flavorText.length)];
+  imageText.textContent = flavorText[randomIntFromInterval(0, (flavorText.length - 1))];
   imageText.classList.add('centered');
   imageText.style.left = `${randomIntFromInterval(1, 9) * 10}%`
+  let bottom_or_top = randomIntFromInterval(0,1);
+  // Append to bottom of image
+  if(bottom_or_top == 0){
+    imageText.style.top = `${randomIntFromInterval(75, 90)}%`;
+  }
+  // Append to top of image
+  else{
+    imageText.style.top = `${randomIntFromInterval(5, 20)}`;
+  }
   imgWrapper.appendChild(imageText);
   setTimeout(() => {
     imgWrapper.removeChild(imageText);
@@ -66,7 +76,7 @@ getGifBatch(0)
 .then((gifData) => {
   gifs = gifData.results,
     next = gifData.next;
-  let gifIndex = randomIntFromInterval(0, gifs.length);
+  let gifIndex = randomIntFromInterval(0, (gifs.length - 1));
   img.src = gifs[gifIndex].media_formats.gif.url;
   gifs.splice(gifIndex, 1);
 });
