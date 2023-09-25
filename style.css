@@ -111,8 +111,8 @@ img{
 }
 
 #refresh:hover + .vapor span{
-  animation: steam 5s linear infinite;
-  animation-delay: calc(var(--i) * -.5s);
+  animation: steam 4s linear infinite;
+  animation-delay: calc(var(--i) * .5s);
 }
 
 .vapor{
