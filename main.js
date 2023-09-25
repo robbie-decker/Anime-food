@@ -50,6 +50,7 @@ function addText(){
   let left = randomIntFromInterval(1, 8) * 10;
   imageText.style.left = `${left}%`;
 
+  // Randomly select if text will be on top or bottom
   let bottom_or_top = randomIntFromInterval(0,1);
   let top;
   // Append to bottom of image
@@ -65,14 +66,14 @@ function addText(){
   }
   // Now add a sliding effect to the text
   imageText.style.transition = "transform 3s";
-  imageText.style.transform = `translate(${-(left - 50)}%, ${-(top - 50)}%)`;
+  imageText.style.transform = `translate(${-(left - 30)}%, ${-(top - 50)}%)`;
   imageText.style.offsetWidth = 0;
   imageText.style.overflow = "hidden";
   imgWrapper.appendChild(imageText)
   
   // Trigger a reflow to apply initial styles and start the transition
   imageText.getBoundingClientRect();
-  imageText.style.transform = `translate(${left - 50}%, ${top - 50}%)`;
+  imageText.style.transform = `translate(${left - 70}%, ${top - 50}%)`;
 
   // Remove the text
   setTimeout(() => {
