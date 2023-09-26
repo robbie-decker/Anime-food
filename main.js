@@ -33,6 +33,11 @@ refreshPic.addEventListener("click", () => {
   }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Add a class that includes my transition for the button
+  refreshPic.classList.add("add_transition");
+});
+
 function changeGif(){
   let gifIndex = randomIntFromInterval(0, (gifs.length - 1));
   img.src = gifs[gifIndex].media_formats.gif.url;
